@@ -1,0 +1,642 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+
+    <title></title>
+    <meta name="author" content="HiD">
+    
+    <meta name="description" content="A practical security guide for web developersThe intended audienceSecurity issues happen for two reasons - 
+
+Developers who have just started and cann">
+    
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+    <meta property="og:site_name" content="Hexo"/>
+
+    
+    <meta property="og:image" content="undefined"/>
+    
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="indigo">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">Hexo</a>
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/" >
+                            <i class="fa fa-home "></i>
+                            
+                            首页
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            归档
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            分类
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-reading " href="/reading" >
+                            <i class="fa fa-book "></i>
+                            
+                            读书
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            关于
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-search modal-trigger " href="#search" >
+                            <i class="fa fa-search "></i>
+                            
+                            搜索
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav indigo darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="https://s3-ap-southeast-1.amazonaws.com/resourcesingapore/893791979176306297.jpg " alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">HiD</p>
+                        <p class="desc">Web前端/热爱音乐/爱折腾</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/" >
+                    <i class="fa fa-home "></i>
+                    
+                    首页
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    归档
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    分类
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-reading " href="/reading" >
+                    <i class="fa fa-book "></i>
+                    
+                    读书
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    关于
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-search modal-trigger " href="#search" >
+                    <i class="fa fa-search "></i>
+                    
+                    搜索
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav indigo darken-1" id="category-menu">
+    
+
+            
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+<div id="search" class="modal search-modal">
+    <div class="row">
+        <div class="input-field col s12">
+              <input id="search-input" type="text">
+              <label for="search-input">搜索</label>
+        </div>
+
+    </div>
+    <div id="search-result" class="search-result col s12">
+
+    </div>
+</div>
+
+
+    <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper indigo">
+        <span class="breadcrumb">当前位置（分类目录）</span>
+        
+            
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>无题</h1>
+    
+
+
+            </div>
+            <time class="pink-link-context" datetime="2016-07-22T10:01:06.547Z"><a href="/2016/07/22/Web开发人员安全指南/">2016-07-22</a></time>
+
+            
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#A-practical-security-guide-for-web-developers"><span class="section table-of-contents-text">A practical security guide for web developers</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#The-intended-audience"><span class="section table-of-contents-text">The intended audience</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#Contents"><span class="section table-of-contents-text">Contents</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#Who-are-we"><span class="section table-of-contents-text">Who are we?</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#The-Security-Checklist"><span class="section table-of-contents-text">The Security Checklist</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#AUTHENTICATION-SYSTEMS-Signup-Signin-2-Factor-Password-reset"><span class="section table-of-contents-text">AUTHENTICATION SYSTEMS (Signup/Signin/2 Factor/Password reset)</span></a></li><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#USER-DATA-amp-AUTHORIZATION"><span class="section table-of-contents-text">USER DATA & AUTHORIZATION</span></a></li><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#ANDROID-IOS-APP"><span class="section table-of-contents-text">ANDROID / IOS APP</span></a></li><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#SECURITY-HEADERS-amp-CONFIGURATIONS"><span class="section table-of-contents-text">SECURITY HEADERS & CONFIGURATIONS</span></a></li><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#SANITIZATION-OF-INPUT"><span class="section table-of-contents-text">SANITIZATION OF INPUT</span></a></li><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#OPERATIONS"><span class="section table-of-contents-text">OPERATIONS</span></a></li><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#PEOPLE"><span class="section table-of-contents-text">PEOPLE</span></a></li></ol></li></ol></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#Hackerone-publicly-disclosed-bugs-Stats"><span class="section table-of-contents-text">Hackerone publicly disclosed bugs Stats</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#Issues-by-type-of-mistake"><span class="section table-of-contents-text">Issues by type of mistake</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#Issues-sorted-by-their-frequency-of-occurence"><span class="section table-of-contents-text">Issues sorted by their frequency of occurence</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#Some-unique-vulnerability-types"><span class="section table-of-contents-text">Some unique vulnerability types</span></a></li></ol></li></ol></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <h1 id="A-practical-security-guide-for-web-developers"><a href="#A-practical-security-guide-for-web-developers" class="headerlink" title="A practical security guide for web developers"></a><a href="https://github.com/FallibleInc/security-guide-for-developers" target="_blank" rel="external">A practical security guide for web developers</a></h1><h2 id="The-intended-audience"><a href="#The-intended-audience" class="headerlink" title="The intended audience"></a>The intended audience</h2><p>Security issues happen for two reasons - </p>
+<ol>
+<li>Developers who have just started and cannot really tell a difference between using MD5 or bcrypt.</li>
+<li>Developers who know stuff but forget/ignore them.</li>
+</ol>
+<p>Our detailed explanations should help the first type while we hope our checklist helps the second one create more secure systems. This is by no means a comprehensive guide, it just covers stuff based on the most common issues we have discovered in the past.</p>
+<h2 id="Contents"><a href="#Contents" class="headerlink" title="Contents"></a>Contents</h2><ol>
+<li><a href="security-checklist.md">The Security Checklist</a></li>
+<li>What can go wrong?</li>
+<li>Securely transporting stuff: HTTPS explained</li>
+<li>Authentication: I am who I say I am<br>4.1 Form based authentication<br>4.2 Basic authentication<br>4.3 One is not enough, 2 factor, 3 factor, ….<br>4.4 Why use insecure text messages? Introducing HOTP &amp; TOTP<br>4.5 Handling password resets</li>
+<li>Authorization: What am I allowed to do?<br>5.1 Token based Authorization<br>5.2 OAuth &amp; OAuth2<br>5.3 JWT</li>
+<li>Data Validation and Sanitation: Never trust user input<br>6.1 Validating and Sanitizing Inputs<br>6.2 Sanitizing Outputs<br>6.3 Cross Site Scripting<br>6.4 Injection Attacks<br>6.5 User uploads<br>6.6 Tamper-proof user inputs</li>
+<li>Plaintext != Encoding != Encryption != Hashing<br>7.1 Common encoding schemes<br>7.2 Encryption<br>7.3 Hashing &amp; One way functions<br>7.4 Hashing speeds cheatsheet</li>
+<li>Passwords: dadada, 123456 and cute@123<br>8.1 Password policies<br>8.2 Storing passwords<br>8.3 Life without passwords</li>
+<li>Public Key Cryptography</li>
+<li>Sessions: Remember me, please<br>10.1 Where to save state?<br>10.2 Invalidating sessions<br>10.3 Cookie monster &amp; you</li>
+<li>Fixing security, one header at a time<br>11.1 Secure web headers<br>11.2 Data integrity check for 3rd party code<br>11.3 Certificate Pinning</li>
+<li>Configuration mistakes<br>12.0 Provisoning in cloud: Ports, Shodan &amp; AWS<br>12.1 Honey, you left the debug mode on<br>12.2 Logging (or not logging)<br>12.3 Monitoring<br>12.4 Principle of least privilege<br>12.5 Rate limiting &amp; Captchas<br>12.6 Storing project secrets and passwords in a file<br>12.7 DNS: Of subdomains and forgotten pet-projects<br>12.7 Patching &amp; Updates  </li>
+<li>Attacks: When the bad guys arrive<br>13.1 Clickjacking<br>13.2 Cross Site Request Forgery<br>13.3 Denial of Service<br>13.4 Server Side Request Forgery</li>
+<li><a href="vulnerabilities-stats.md">Stats about vulnerabilities discovered in Internet Companies</a>   </li>
+<li>On reinventing the wheel, and making it square<br>15.1 Security libraries and packages for Python<br>15.2 Security libraries and packages for Node/JS<br>15.3 Learning resources</li>
+<li>Maintaining a good security hygiene</li>
+<li>Security Vs Usability</li>
+<li>Back to Square 1: The Security Checklist explained</li>
+</ol>
+<h3 id="Who-are-we"><a href="#Who-are-we" class="headerlink" title="Who are we?"></a>Who are we?</h3><p>We are full stack developers who just grew tired by watching how developers were lowering the barrier to call something a hack by writing unsecure code. In the past six months we have prevented leaks of more than 15 million credit card details, personal details of over 45 million users and potentially saved companies from shutting down. Recently, we discovered an issue that could result in system takeover and data leak in a bitcoin institution. We have helped several startups secure their systems, most of them for free, sometimes without even getting a thank you in response :)</p>
+<p><em>If you disagree with something or find a bug please open an issue or file a PR. Alternatively, you can talk to us on hello@fallible.co</em></p>
+<h2 id="The-Security-Checklist"><a href="#The-Security-Checklist" class="headerlink" title="The Security Checklist"></a>The Security Checklist</h2><h5 id="AUTHENTICATION-SYSTEMS-Signup-Signin-2-Factor-Password-reset"><a href="#AUTHENTICATION-SYSTEMS-Signup-Signin-2-Factor-Password-reset" class="headerlink" title="AUTHENTICATION SYSTEMS (Signup/Signin/2 Factor/Password reset)"></a>AUTHENTICATION SYSTEMS (Signup/Signin/2 Factor/Password reset)</h5><ul>
+<li>[ ] Use HTTPS everywhere.</li>
+<li>[ ] Store password hashes using <code>Bcrypt</code> (no salt necessary - <code>Bcrypt</code> does it for you).</li>
+<li>[ ] Destroy the session identifier after <code>logout</code>.  </li>
+<li>[ ] Destroy all active sessions on reset password (or offer to).  </li>
+<li>[ ] Must have the <code>state</code> parameter in OAuth2.</li>
+<li>[ ] No open redirects after successful login or in any other intermediate redirects.</li>
+<li>[ ] When parsing Signup/Login input, sanitize for javascript://, data://, CRLF characters. </li>
+<li>[ ] Set secure, httpOnly cookies.</li>
+<li>[ ] In Mobile <code>OTP</code> based mobile verification, do not send the OTP back in the response when <code>generate OTP</code> or <code>Resend OTP</code>  API is called.</li>
+<li>[ ] Limit attempts to <code>Login</code>, <code>Verify OTP</code>, <code>Resend OTP</code> and <code>generate OTP</code> APIs for a particular user. Have an exponential backoff set or/and something like a captcha based challenge.</li>
+<li>[ ] Check for randomness of reset password token in the emailed link or SMS.</li>
+<li>[ ] Set an expiration on the reset password token for a reasonable period.</li>
+<li>[ ] Expire the reset token after it has been successfully used.</li>
+<li>[ ] Destroy the logged in user’s session everywhere after successful reset of password. </li>
+</ul>
+<h5 id="USER-DATA-amp-AUTHORIZATION"><a href="#USER-DATA-amp-AUTHORIZATION" class="headerlink" title="USER DATA &amp; AUTHORIZATION"></a>USER DATA &amp; AUTHORIZATION</h5><ul>
+<li>[ ] Any resource access like, <code>my cart</code>, <code>my history</code> should check the logged in user’s ownership of the resource using session id.</li>
+<li>[ ] Serially iterable resource id should be avoided. Use <code>/me/orders</code> instead of <code>/user/37153/orders</code>. This acts as a sanity check in case you forgot to check for authorization token. </li>
+<li>[ ] <code>Edit email/phone number</code> feature should be accompanied by a verification email to the owner of the account. </li>
+<li>[ ] Any upload feature should sanitize the filename provided by the user. Also, for generally reasons apart from security, upload to something like S3 (and post-process using lambda) and not your own server capable of executing code.  </li>
+<li>[ ] <code>Profile photo upload</code> feature should sanitize all the <code>EXIF</code> tags also if not required.</li>
+<li>[ ] For user ids and other ids, use <a href="http://www.ietf.org/rfc/rfc4122.txt" target="_blank" rel="external">RFC compliant </a> <code>UUID</code> instead of integers. You can find an implementation for this for your language on Github.</li>
+<li>[ ] JWT are awesome. Use them if required for your single page app/APIs.</li>
+</ul>
+<h5 id="ANDROID-IOS-APP"><a href="#ANDROID-IOS-APP" class="headerlink" title="ANDROID / IOS APP"></a>ANDROID / IOS APP</h5><ul>
+<li>[ ] <code>salt</code> from payment gateways should not be hardcoded.</li>
+<li>[ ] <code>secret</code> / <code>auth token</code> from 3rd party SDK’s should not be hardcoded.</li>
+<li>[ ] API calls intended to be done <code>server to server</code> should not be done from the app.</li>
+<li>[ ] In Android, all the granted  <a href="https://developer.android.com/guide/topics/security/permissions.html" target="_blank" rel="external">permissions</a> should be carefully evaluated.</li>
+<li>[ ] <a href="https://en.wikipedia.org/wiki/HTTP_Public_Key_Pinning" target="_blank" rel="external">Certificate pinning</a> is highly recommended.</li>
+</ul>
+<h5 id="SECURITY-HEADERS-amp-CONFIGURATIONS"><a href="#SECURITY-HEADERS-amp-CONFIGURATIONS" class="headerlink" title="SECURITY HEADERS &amp; CONFIGURATIONS"></a>SECURITY HEADERS &amp; CONFIGURATIONS</h5><ul>
+<li>[ ] <code>Add</code> <a href="https://en.wikipedia.org/wiki/Content_Security_Policy" target="_blank" rel="external">CSP</a> header to mitigate XSS and data injection attacks. This is important.</li>
+<li>[ ] <code>Add</code> <a href="https://en.wikipedia.org/wiki/Cross-site_request_forgery" target="_blank" rel="external">CSRF</a> header to prevent cross site request forgery. Also add <a href="https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site-00" target="_blank" rel="external">SameSite</a> attributes on cookies.</li>
+<li>[ ] <code>Add</code> <a href="https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security" target="_blank" rel="external">HSTS</a> header to prevent SSL stripping attack.</li>
+<li>[ ] <code>Add</code> your domain to the <a href="https://hstspreload.appspot.com/" target="_blank" rel="external">HSTS Preload List</a></li>
+<li>[ ] <code>Add</code> <a href="https://en.wikipedia.org/wiki/Clickjacking#X-Frame-Options" target="_blank" rel="external">X-Frame-Options</a> to protect against Clickjacking.</li>
+<li>[ ] <code>Add</code> <a href="https://www.owasp.org/index.php/OWASP_Secure_Headers_Project#X-XSS-Protection" target="_blank" rel="external">X-XSS-Protection</a> header to mitigate XSS attacks.</li>
+<li>[ ] Update DNS records to add <a href="https://en.wikipedia.org/wiki/Sender_Policy_Framework" target="_blank" rel="external">SPF</a> record to mitigate spam and phishing attacks.</li>
+<li>[ ] Add <a href="https://en.wikipedia.org/wiki/Subresource_Integrity" target="_blank" rel="external">subresource integrity checks</a> if loading your JavaScript libraries from a third party CDN.</li>
+<li>[ ] Use random CSRF tokens and expose business logic APIs as HTTP POST requests. Do not expose CSRF tokens over HTTP for example in an initial request upgrade phase.</li>
+<li>[ ] Do not use critical data or tokens in GET request parameters. Exposure of server logs or a machine/stack processing them would expose user data in turn.</li>
+</ul>
+<h5 id="SANITIZATION-OF-INPUT"><a href="#SANITIZATION-OF-INPUT" class="headerlink" title="SANITIZATION OF INPUT"></a>SANITIZATION OF INPUT</h5><ul>
+<li>[ ] <code>Sanitize</code> all user inputs or any input parameters exposed to user to prevent <a href="https://en.wikipedia.org/wiki/Cross-site_scripting" target="_blank" rel="external">XSS</a>.</li>
+<li>[ ] <code>Sanitize</code> all user inputs or any input parameters exposed to user to prevent <a href="https://en.wikipedia.org/wiki/SQL_injection" target="_blank" rel="external">SQL Injection</a>.</li>
+<li>[ ] Sanitize user input if using it directly for functionalities like CSV import.</li>
+<li>[ ] <code>Sanitize</code> user input for special cases like robots.txt as profile names in case you are using a url pattern like coolcorp.io/username. </li>
+<li>[ ] Do not hand code or build JSON by string concatenation ever, no matter how small the object is. Use your langauge defined libraries or framework.</li>
+<li>[ ] Sanitize inputs that take some sort of URLs to prevent <a href="https://docs.google.com/document/d/1v1TkWZtrhzRLy0bYXBcdLUedXGb9njTNIJXa3u9akHM/edit#heading=h.t4tsk5ixehdd" target="_blank" rel="external">SSRF</a>.</li>
+<li>[ ] Sanitize Outputs before displaying to users.</li>
+</ul>
+<h5 id="OPERATIONS"><a href="#OPERATIONS" class="headerlink" title="OPERATIONS"></a>OPERATIONS</h5><ul>
+<li>[ ] If you are small and inexperienced, evaluate using AWS elasticbeanstalk or a PaaS to run your code.</li>
+<li>[ ] Use a decent provisioning script to create VMs in the cloud.</li>
+<li>[ ] Check for machines with unwanted publicly <code>open ports</code>.</li>
+<li>[ ] Check for no/default passwords for <code>databases</code> especially MongoDB &amp; Redis. BTW MongoDB sucks, avoid it.</li>
+<li>[ ] Use SSH to access your machines; do not set up a password.</li>
+<li>[ ] Install updates timely to act upon zero day vulnerabilities like Heartbleed, Shellshock.</li>
+<li>[ ] Modify server config to use TLS 1.2 for HTTPS and disable all other schemes. (The tradeoff is good.)</li>
+<li>[ ] Do not leave the DEBUG mode on. In some frameworks, DEBUG mode can give access full-fledged REPL or shells or expose critical data in error messages stacktraces.</li>
+<li>[ ] Be prepared for bad actors &amp; DDOS - use <a href="https://www.cloudflare.com/ddos/" target="_blank" rel="external">Cloudflare</a>.</li>
+<li>[ ] Set up monitoring for your systems, and log stuff (use <a href="https://newrelic.com/" target="_blank" rel="external">New Relic</a> or something like that).</li>
+<li>[ ] If developing for enterprise customers, adhere to compliance requirements. If AWS S3, consider using the feature to <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html" target="_blank" rel="external">encrypt data</a>. If using AWS EC2, consider using the feature to use encrypted volumes (even boot volumes can be encypted now). </li>
+</ul>
+<h5 id="PEOPLE"><a href="#PEOPLE" class="headerlink" title="PEOPLE"></a>PEOPLE</h5><ul>
+<li>[ ] Set up an email (e.g. security@coolcorp.io) and a page for security researchers to report vulnerabilities.</li>
+<li>[ ] Depending on what you are making, limit access to your user databases.</li>
+<li>[ ] Be polite to bug reporters.</li>
+<li>[ ] Have your code review done by a fellow developer from a secure coding perspective. (More eyes)</li>
+<li>[ ] In case of a hack or data breach, check previous logs for data access, ask people to change passwords. You might require an audit by external agencies depending on where you are incorporated.  </li>
+<li>[ ] Set up <a href="https://github.com/Netflix/Scumblr" target="_blank" rel="external">Netflix’s Scumblr</a> to hear about talks about your organization on social platforms and Google search.</li>
+</ul>
+<h2 id="Hackerone-publicly-disclosed-bugs-Stats"><a href="#Hackerone-publicly-disclosed-bugs-Stats" class="headerlink" title="Hackerone publicly disclosed bugs Stats"></a>Hackerone publicly disclosed bugs Stats</h2><p>At the time of writing, the Hackerone platform had 1731 publicly disclosed bugs in companies such as Twitter, Uber, Dropbox, Github etc.<br>8 of the bugs were removed as outright spam. 9 others were related to bugs in the Internet or a specific programming language. Out of the remaining 1714, we were able to classify 1359 issues using some code and manual work.</p>
+<h4 id="Issues-by-type-of-mistake"><a href="#Issues-by-type-of-mistake" class="headerlink" title="Issues by type of mistake"></a>Issues by type of mistake</h4><table>
+<thead>
+<tr>
+<th>Classification</th>
+<th>Count</th>
+<th>Percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>User Input Sanitization</td>
+<td>481</td>
+<td>27.8</td>
+</tr>
+<tr>
+<td>Other code issues</td>
+<td>549</td>
+<td>31.7</td>
+</tr>
+<tr>
+<td>Configuration issues</td>
+<td>325</td>
+<td>18.8</td>
+</tr>
+<tr>
+<td>Unclassified+Info+Junk</td>
+<td>376</td>
+<td>21.7</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Issues-sorted-by-their-frequency-of-occurence"><a href="#Issues-sorted-by-their-frequency-of-occurence" class="headerlink" title="Issues sorted by their frequency of occurence"></a>Issues sorted by their frequency of occurence</h4><p>1 out of 3 issues were related to XSS, Insecure references to data (data leak) or missing CSRF token. The <a href="https://hackerone.com/hacktivity/new" target="_blank" rel="external">Hackerone page</a> listing these issues is quite interesting and can be read.</p>
+<p>Type|Count|Percentage<br>| — | — | — |<br>XSS|375|21.87<br>Insecure reference + Data Leak|104|6.06<br>CSRF Token|99|5.77<br>Open Redirects|59|3.44<br>Information/Source Code Disclosure|57|3.32<br>DNS misconfiguration + Apache/Nginx + Subdomain Takeover + Open AWS_S3|44|2.56<br>Improper Session management/Fixation|39|2.27<br>TLS/SSL/POODLE/Heartbleed|39|2.27<br>HTML/JS/XXE/Content Injections|37|2.15<br>HTTP Header Issues|34|1.98<br>NULL POINTER + SEGFAULT + Using memory after free()|33|1.92<br>DMARC/DKIM/SPF settings for Mail|31|1.8<br>SQL Injection|28|1.63<br>Clickjacking|27|1.57<br>Improper Cookies (secure/httpOnly/exposed)|25|1.45<br>Path disclosure|25|1.45<br>Broken/Open Authentication|24|1.4<br>Brute Force attacks|24|1.4<br>Content Spoofing|20|1.16<br>Buffer overflow|20|1.16<br>Denial Of Service|19|1.1<br>Server Side Request Forgery|18|1.05<br>Adobe Flash vulnerabilities|18|1.05<br>User/Info Enumeration|17|0.99<br>Remote Code Execution|15|0.87<br>Password reset token expiration/attempts/others|13|0.75<br>Integer overflow|11|0.64<br>Version Disclosure|11|0.64<br>CSV Injection|10|0.58<br>Privilege Escalation|9|0.52<br>OAuth state/leaks and other issues|9|0.52<br>Password Policy|7|0.4<br>CRLF|7|0.4<br>PythonLang|6|0.35<br>Homograph attack|6|0.35<br>File upload type/size/location sanitize|6|0.35<br>Captcha bypass|5|0.29<br>Remote/Local File inclusion|4|0.23<br>Directory listing|4|0.23<br>Path traversal|4|0.23<br>Remote File Upload|4|0.23<br>Autocomplete enabled|4|0.23<br>Leak through referer|3|0.17<br>Pixel Flood Attack|3|0.17<br>Control Chars in Input|2|0.11</p>
+<h3 id="Some-unique-vulnerability-types"><a href="#Some-unique-vulnerability-types" class="headerlink" title="Some unique vulnerability types"></a>Some unique vulnerability types</h3><ol>
+<li>Race conditions based vulnerabilities</li>
+<li>Pixel Flood Attack</li>
+<li>IDN Homograph Attack</li>
+<li>Control Characters in Input leading to interesting outcomes</li>
+</ol>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large pink">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect green" title="回到顶部"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse yellow darken-1"  data-activates="main-menu" title="menu"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer indigo darken-1">
+    
+    <div class="container">
+        <div class="row">
+            
+            <div class="social-group col m3 s12">
+                <h5 class="white-text">社交</h5>
+                
+                    <a class="social-link" href="https://github.com/neewbee" target="_blank">
+                        <i class="fa fa-2x fa-github"></i>
+                    </a>
+                
+            </div>
+            
+
+            
+            <div class="col m9 s12">
+                <h5 class="white-text">友情链接</h5>
+                
+                    <a class="social-link" href="http://www.xiami.com/u/1065560" target="_blank">xiami</a>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div class="footer-copyright pink-link-context">
+        <div class="container">
+            © 2016 https://neewbee.github.io/, All rights reserved.
+            <p class="right" style="margin-top: 0;">本博客由 <a href="https://hexo.io">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
+        </div>
+    </div>
+</footer>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+</div>
+
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+
+<script>
+    (function($) {
+        $(document).ready(function() {
+            // 隐藏禁用javascript（针对微信内置浏览器）的提示
+            $('.noscript').hide();
+
+            // 图片缩放效果
+            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+            // 给图片加上点击放大效果（materialbox插件）
+            $imgs.addClass('materialboxed').each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+            // 优化表格的显示
+            $('table').each(function() {
+                var $table = $(this);
+                // 除去多行代码的情况
+                if ($table.find('pre').length == 0) {
+                    $table.addClass('responsive-table striped bordered');
+                }
+            });
+
+            // 首页幻灯片
+            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
+
+            $(".button-collapse").sideNav();
+            $(".category-menu").sideNav();
+
+            // 针对gallery post
+            $('.carousel').carousel({full_width: true});
+            $('.carousel-control.prev').click(function() {
+                $('.carousel').carousel('prev');
+            });
+            $('.carousel-control.next').click(function() {
+                $('.carousel').carousel('next');
+            });
+
+            // 文章目录
+            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+            // 修正文章目录的left-border颜色
+            var color = $('.table-of-contents-text').css('color');
+            $('.table-of-contents-link').css('border-left-color', color);
+
+            // 针对移动端做的优化：FAB按钮点击一下收回
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $('.fixed-action-btn').addClass('click-to-toggle');
+            }
+            // 回到顶部
+            $('.btn-return-top').click(function() {
+                $('body, html').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+
+            // 重置读书页面的Tab标签页的颜色
+            $('li.tab a').hover(function() {
+                $(this).toggleClass('text-lighten-4');
+            });
+            $('.indicator').addClass('pink lighten-2');
+
+            
+            // 添加new标签
+            $('.menu-reading, .menu-about').append('<span class="new badge pink"></span>');
+            
+
+            // 搜索功能
+            $('.modal-trigger').leanModal({
+                // 打开搜索框时自动聚焦
+                ready: function() {
+                    if ($('#search').is(":visible")) {
+                        $('#search-input').focus();
+                    }
+                }
+            });
+            var searchXml = "";
+            if (searchXml.length == 0) {
+             	searchXml = "search.xml";
+            }
+            var searchPath = "/" + searchXml;
+            initSearch(searchPath, 'search-input', 'search-result');
+        });
+
+        // 初始化搜索与匹配函数
+        var initSearch = function(path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function(xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function() {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function() {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function(data) {
+                            var isMatch = true;
+                            var content_index = [];
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title != '' && data_content != '') {
+                                keywords.forEach(function(keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i == 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    data_title = data_title.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                });
+
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start == 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substring(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function(keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                    });
+
+                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        }
+    })(jQuery);
+</script>
+
+
+<script src="/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
