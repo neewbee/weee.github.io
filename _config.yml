@@ -1,5 +1,5 @@
 # Site settings
-title:       Pixyll
+title:       neewbee的笔记
 email:       your_email@example.com
 author:      John Otander
 description: "A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff."
@@ -17,7 +17,7 @@ google_tag_manager:
 bing_verification:
 
 # Optional features
-animated:             false
+animated:             true
 show_related_posts:   false
 show_post_footers:    false
 show_social_icons:    false
@@ -48,7 +48,7 @@ facebook_appid:
 facebook_comments_number: 10
 
 # Social icons
-github_username:
+github_username:"neewbee":
 bitbucket_username:
 stackoverflow_id:
 twitter_username:
@@ -65,7 +65,7 @@ telegram_username:
 vk_id:
 
 # Post sharing icons
-show_sharing_icons: false
+show_sharing_icons: true
 # Change to 'true' to enable individual icons
 share_facebook: false
 share_twitter: false
@@ -79,8 +79,8 @@ share_hackernews: false
 
 text:
   pagination:
-    newer: 'Newer'
-    older: 'Older'
+    newer: '上一页'
+    older: '下一页'
   share_buttons:
     text:         'Share this post!'
     facebook:     'Share on Facebook'
