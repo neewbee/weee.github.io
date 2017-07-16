@@ -28,6 +28,8 @@ enable_anchorjs: false
 # Preview image for social media aka og:image and twitter:image
 post_preview_image: false
 
+# syntax hightlighter
+highlighter: pygments
 # Facebook Page integration
 # (for instant articles and other stuff)
 fb_page: false
@@ -82,7 +84,7 @@ text:
     newer: '上一页'
     older: '下一页'
   share_buttons:
-    text:         'Share this post!'
+    text:         ''
     facebook:     'Share on Facebook'
     twitter:      'Share on Twitter'
     googleplus:   'Share on Google+'
@@ -126,3 +128,4 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - vendor
+
