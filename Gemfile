@@ -5,3 +5,7 @@ source 'https://rubygems.org'
 # https://github.com/github/pages-gem
 gem 'github-pages'
 gem 'pygments.rb'
+
+group :jekyll_plugins do
+  gem "jekyll-gist"
+end
