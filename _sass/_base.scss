@@ -32,3 +32,17 @@ body {
      -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
 }
+
+pre {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 1.4;
+  color: #333;
+  background: rgb(247, 247, 247);
+  border: 0;
+}
+
+code {
+  color: #24292e;
+}
